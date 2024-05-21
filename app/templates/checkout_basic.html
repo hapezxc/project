@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    <!-- Font Awesome CDN link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+</head>
+<body>
+    {% include 'components/user_header.html' %}
+
+    <section class="checkout-orders">
+        {% for msg in message %}
+            <div class="message">{{ msg }}<i class="fas fa-times" onclick="this.parentElement.remove();"></i></div>
+        {% endfor %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h3>Let us know who you are</h3>
+
+            <div class="flex">
+                <div class="inputBox">
+                    <span>your name :</span>
+                    <input type="text" name="name" placeholder="enter your name" class="box" maxlength="20" required>
+                </div>
+                <div class="inputBox">
+                    <span>your number :</span>
+                    <input type="text" name="number" placeholder="enter your number" class="box" minlength="10" maxlength="10" required>
+                </div>
+                <div class="inputBox">
+                    <span>your email :</span>
+                    <input type="email" name="email" placeholder="enter your email" class="box" maxlength="50" required>
+                </div>
+
+                <div class="inputBox">
+                    <span>payment method :</span>
+                    <select name="method" class="box" required>
+                        <option value="Pay At The Counter">Pay At The Counter</option>
+                    </select>
+                </div>
+                <div class="inputBox">
+                    <span>Address :</span>
+                    <input type="text" name="city" placeholder="Iligan City Pala-o" class="box" maxlength="50" required>
+                </div>
+
+                <div class="inputBox">
+                    <span>check-in date :</span>
+                    <input type="date" name="check_in" class="box" required>
+                </div>
+                <div class="inputBox">
+                    <span>check-out date :</span>
+                    <input type="date" name="check_out" class="box" required>
+                </div>
+            </div>
+
+            <!-- Add hidden input for room_quantity -->
+            <input type="hidden" name="room_quantity" value="1">
+
+            <input type="submit" name="order" class="btn" value="Book Now ">
+        </form>
+    </section>
+
+    {% include 'components/footer.html' %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

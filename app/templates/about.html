@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>About</title>
+
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+   
+   <!-- Font Awesome CDN link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- Custom CSS file link  -->
+   <link rel="stylesheet" href="{% static 'css/css.css' %}">
+   <link rel="stylesheet" href="{% static 'css/css2.css' %}">
+
+</head>
+<body>
+   
+{% include 'components/user_header.html' %}
+
+<section class="about">
+
+   <div class="row">
+
+      <div class="image">
+         <img src="{% static 'images/about.png' %}" alt="">
+      </div>
+
+      <div class="content">
+         <h3>Reasons to stay here</h3>
+         <p>The car parking and the Wi-Fi are always free, so you can stay in touch and come and go as you please. Conveniently situated in the Iligan City part of Iligan City, this property puts you close to attractions and interesting dining options. This 3 star property features restaurant to make your stay more indulgent and memorable.</p>
+         <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+      </div>
+
+   </div>
+
+</section>
+
+<section class="faq" id="faq">
+
+   <h1 class="heading">FAQ</h1>
+
+   <div class="box-container">
+
+      <div class="box active">
+         <h3><span>Does The Loft Hotel Provide Laundry Services?</span><i class="fas fa-angle-down"></i></h3>
+         <p>Yes! The Loft Hotel offers hot water linen and laundry washing at your grasp for whenever you need your favorite clothes clean and fresh all throughout your holiday. Please contact the property for more information.</p>
+      </div>
+
+      <div class="box active">
+         <h3><span>Is Car Parking Available At Loft Hotel?</span><i class="fas fa-angle-down"></i></h3>
+         <p>The Loft Hotel has car park onsite free of charge for guests with vehicles to choose from when staying at this property. In case the car park is full, this property also has and nearby as well.</p>
+      </div>
+
+      <div class="box">
+         <h3><span>What Actions Does The Loft Hotel Take in Terms Of Hygiene, Safety, And Cleanliness?</span><i class="fas fa-angle-down"></i></h3>
+         <p>The Loft Hotel meet our mandatory standard for cleanliness and safety by offering hand sanitizer and daily disinfection in common areas. This property also comes prepared with temperature check for guests and staff, first aid kit, staff trained in safety protocol, body thermometer, and sterilizing equipment for heightened safety precautions and hygiene protocols.</p>
+      </div>
+
+      <div class="box">
+         <h3><span>Does The Loft Hotel Provide An Option For Contactless Check-in and Check-out?</span><i class="fas fa-angle-down"></i></h3>
+         <p>At The Loft Hotel, visitors can take part in contactless check-in and check-out option offered by this property for your benefit and safety.</p>
+      </div>
+
+      <div class="box">
+         <h3><span>At What Time Of The Year Is The Loft Hotel Most Popular?</span><i class="fas fa-angle-down"></i></h3>
+         <p>The Loft Hotel's most popular month where verified visitors have stayed the most is in November.</p>
+      </div>
+
+      <div class="box">
+         <h3><span>What Is The Closest Airport To The Loft Hotel?</span><i class="fas fa-angle-down"></i></h3>
+         <p>The closest airport to The Loft Hotel is Laguindingan Airport, 63.8 km away.</p>
+      </div>
+
+   </div>
+
+</section>
+
+{% include 'components/footer.html' %}
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+<script>
+   document.querySelectorAll('.faq .box-container .box h3').forEach(function (heading) {
+      heading.onclick = function () {
+         heading.parentElement.classList.toggle('active');
+      };
+   });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Booking</title>
+   
+   <!-- Font Awesome CDN link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- Custom CSS file link  -->
+     <link rel="stylesheet" href="{% static 'css/css.css' %}">
+
+</head>
+<body>
+   
+{% include 'components/user_header.html' %}
+
+<section class="orders">
+
+   <h1 class="heading">Transaction Details</h1>
+
+   <div class="box-container">
+
+   {% if not user.is_authenticated %}
+      <p class="empty">Please login to see your bookings</p>
+   {% else %}
+      {% if bookings %}
+         {% for booking in bookings %}
+            <div class="box">
+               <p>Placed on : <span>{{ booking.placed_on }}</span></p>
+               <p>Name : <span>{{ booking.name }}</span></p>
+               <p>Email : <span>{{ booking.email }}</span></p>
+               <p>Number : <span>{{ booking.number }}</span></p>
+               <p>Address : <span>{{ booking.address }}</span></p>
+               <p>Payment method : <span>{{ booking.method }}</span></p>
+               <p>Room : <span>{{ booking.room_quantity }}</span></p>
+               <p>Total price : <span>PHP{{ booking.total_price }}</span></p>
+               <p>Room Type: <span>{{ booking.room_type }}</span></p>
+               <p>Check-in : <span>{{ booking.check_in }}</span></p>
+               <p>Check-out : <span>{{ booking.check_out }}</span></p>
+               <p>Payment status : <span style="color:{% if booking.payment_status == 'pending' %}red{% endif %};">{{ booking.payment_status }}</span></p>
+
+            </div>
+         {% endfor %}
+      {% else %}
+         <p class="empty">No bookings placed yet!</p>
+      {% endif %}
+   {% endif %}
+
+   </div>
+
+</section>
+
+{% include 'components/footer.html' %}
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+    <h1 class="heading">dashboard</h1>
+    {% for message in messages %}
+        <div class="message">
+            <span>{{ message }}</span>
+            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+        </div>
+    {% endfor %}
+    <div class="box-container">
+        <div class="box">
+            <h3>welcome!</h3>
+            <p>{{ admin.username }}</p>
+            <a href="{% url 'dashboard' %}" class="btn">update profile</a>
+        </div>
+        <!-- Add your other boxes here -->
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,53 @@
+<header class="header">
+    <section class="flex">
+        <a href="{% url 'dashboard' %}" class="logo">Admin<span>Panel</span></a>
+        <nav class="navbar">
+            <a href="{% url 'dashboard' %}">Home</a>
+            <a href="{% url 'dashboard' %}">Transaction</a>
+            <a href="{% url 'dashboard' %}">Client</a>
+            <a href="{% url 'dashboard' %}">Messages</a>
+        </nav>
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+        </div>
+        <div class="profile">
+            {% if user.is_authenticated %}
+                <p>{{ user.username }}</p>
+                <a href="{% url 'admin_dashboard' %}" class="btn">update profile</a>
+                <form method="POST" action="{% url 'user_logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-btn" onclick="return confirm('logout from the website?');">logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn">Login</a>
+                <a href="{% url 'register' %}" class="btn">Register</a>
+            {% endif %}
+        </div>
+    </section>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let menuBtn = document.getElementById('menu-btn');
+    let userBtn = document.getElementById('user-btn');
+    let navbar = document.querySelector('.header .flex .navbar');
+    let profile = document.querySelector('.header .flex .profile');
+
+    menuBtn.onclick = function() {
+        navbar.classList.toggle('active');
+        profile.classList.remove('active');
+    }
+
+    userBtn.onclick = function() {
+        profile.classList.toggle('active');
+        navbar.classList.remove('active');
+    }
+
+    window.onscroll = function() {
+        navbar.classList.remove('active');
+        profile.classList.remove('active');
+    }
+});
+</script>
+

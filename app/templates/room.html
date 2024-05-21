@@ -1,0 +1,167 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>room</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+    <!-- Font Awesome CDN link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- Custom CSS file link  -->
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css3.css' %}">
+</head>
+<body>
+
+{% include 'components/user_header.html' %}
+
+<section class="listings" id="listing">
+
+    <h1 class="heading">Our Rooms</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="admin">
+                <div>
+                </div>
+            </div>
+            <div class="thumb">
+                <p class="total-images"><i class="far fa-image"></i><span>5</span></p>
+                <p class="type"><span>1,700</span></p>
+                <form action="" method="post" class="save">
+                </form>
+                <img src="{% static 'images/basic1.webp' %}" alt="">
+            </div>
+            <h3 class="name">Basic Room</h3>
+            <h3 class="name">2 Single Beds</h3>
+            <h3 class="name">32" Flat Screen TV</h3>
+            <a href="{% url 'basic' %}" class="btn">Room Details</a>
+        </div>
+
+        <div class="box">
+            <div class="admin">
+                <div>
+                </div>
+            </div>
+            <div class="thumb">
+                <p class="total-images"><i class="far fa-image"></i><span>5</span></p>
+                <p class="type"><span>1,600</span></p>
+                <form action="" method="post" class="save">
+                </form>
+                <img src="{% static 'images/mat1.webp' %}" alt="">
+            </div>
+            <h3 class="name">Matrimonial Room</h3>
+            <h3 class="name">Matrimonial BED</h3>
+            <h3 class="name">32" Flat Screen TV</h3>
+            <a href="matri.php" class="btn">Room Details</a>
+        </div>
+
+        <div class="box">
+            <div class="admin">
+                <div>
+                </div>
+            </div>
+            <div class="thumb">
+                <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+                <p class="type"><span>3,300</span></p>
+                <form action="" method="post" class="save">
+                </form>
+                <img src="{% static 'images/sui1jpg.jpg' %}" alt="">
+            </div>
+            <h3 class="name">Suite Room</h3>
+            <h3 class="name">2(32)" FlatScreen TV</h3>
+            <h3 class="name">Sala set and Dining Set</h3>
+            <a href="sweet.php" class="btn">Room Details</a>
+        </div>
+
+        <div class="box">
+            <div class="admin">
+                <div>
+                </div>
+            </div>
+            <div class="thumb">
+                <p class="total-images"><i class="far fa-image"></i><span>5</span></p>
+                <p class="type"><span>2,300</span></p>
+                <form action="" method="post" class="save">
+                </form>
+                <img src="{% static 'images/mat1.webp' %}" alt="">
+            </div>
+            <h3 class="name">Family Room</h3>
+            <h3 class="name">3 Single BEDS</h3>
+            <h3 class="name">32" Flat Screen TV</h3>
+            <a href="family.php" class="btn">Room Details</a>
+        </div>
+
+    </div>
+</section>
+
+{% include 'components/footer.html' %}
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+<script>
+    var swiper = new Swiper(".home-slider", {
+        loop: true,
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    var swiper = new Swiper(".category-slider", {
+        loop: true,
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 2,
+            },
+            650: {
+                slidesPerView: 3,
+            },
+            768: {
+                slidesPerView: 4,
+            },
+            1024: {
+                slidesPerView: 5,
+            },
+        },
+    });
+
+    var swiper = new Swiper(".products-slider", {
+        loop: true,
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            550: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+</script>
+
+</body>
+</html>

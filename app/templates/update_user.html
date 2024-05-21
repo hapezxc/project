@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Update Profile</title>
+
+   <!-- Font Awesome CDN link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- Custom CSS file link  -->
+   <link rel="stylesheet" href="{% static 'css/css.css' %}">
+
+</head>
+<body>
+   
+{% include 'components/user_header.html' %}
+
+<section class="form-container">
+
+   <form action="{% url 'update_user' %}" method="post">
+      {% csrf_token %}
+      <h3>Update Profile</h3>
+      <input type="email" name="email" required placeholder="Enter your email" maxlength="50" class="box" value="{{ user.email }}">
+      <input type="password" name="old_password" placeholder="Enter your old password" maxlength="20" class="box">
+      <input type="password" name="new_password" placeholder="Enter your new password" maxlength="20" class="box">
+      <input type="password" name="confirm_new_password" placeholder="Confirm your new password" maxlength="20" class="box">
+      <input type="submit" value="Update Now" class="btn" name="submit">
+   </form>
+
+</section>
+
+{% include 'components/footer.html' %}
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Room Details</title>
+
+   <!-- Font Awesome CDN link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- Custom CSS file link  -->
+   <link rel="stylesheet" href="{% static 'css/css1.css' %}">
+   <link rel="stylesheet" href="{% static 'css/css.css' %}">
+   <link rel="stylesheet" href="{% static 'css/css4.css' %}">
+
+</head>
+<body>
+
+{% include 'components/user_header.html' %}
+
+<!-- view property section starts  -->
+
+<section class="view-property">
+
+   <div class="details">
+      <div class="thumb">
+         <div class="big-image">
+            <img src="{% static 'images/basic1.webp' %}" alt="">
+         </div>
+         <div class="small-images">
+            <img src="{% static 'images/basic1.webp' %}" alt="">
+            <img src="{% static 'images/basic2.webp' %}" alt="">
+            <img src="{% static 'images/basic3.webp' %}" alt="">
+            <img src="{% static 'images/basic4.webp' %}" alt="">
+            <img src="{% static 'images/basic5.webp' %}" alt="">
+         </div>
+      </div>
+      <h3 class="name">Basic Room</h3>
+
+      <h3 class="title">details</h3>
+      <div class="flex">
+         <div class="box">
+            <p><i>BEDS :</i><span>2</span></p>
+            <p><i>Room size:</i><span>12 m²/129 ft²</span></p>
+            <p><i>City view :</i><span>Yes</span></p>
+            <p><i>WIFI :</i><span>Yes</span></p>
+            <p><i>Per night:</i><span>1,700</span></p>
+         </div>
+      </div>
+      <h3 class="title">Facilities</h3>
+      <div class="flex">
+         <div class="box">
+            <p><i class="fas fa-times"></i><span>Pets allowed</span></p>
+            <p><i class="fas fa-check"></i><span>Body thermometer</span></p>
+            <p><i class="fas fa-check"></i><span>Rental car</span></p>
+            <p><i class="fas fa-check"></i><span>Daily disinfection in common areas</span></p>
+            <p><i class="fas fa-check"></i><span>Face coverings on staff</span></p>
+            <p><i class="fas fa-check"></i><span>First aid kit</span></p>
+         </div>
+         <div class="box">
+            <p><i class="fas fa-check"></i><span>Restaurants </span></p>
+            <p><i class="fas fa-check"></i><span>Room service</span></p>
+            <p><i class="fas fa-check"></i><span>Contactless check-in/out </span></p>
+            <p><i class="fas fa-check"></i><span>Elevator</span></p>
+            <p><i class="fas fa-check"></i><span>Airport transfer</span></p>
+            <p><i class="fas fa-check"></i><span>Smoking area</span></p>
+         </div>
+      </div>
+      <h3 class="title">Description</h3>
+      <p class="description">
+         The Loft Hotel
+
+         The facilities and services provided by The Loft Hotel ensure a pleasant stay for guests. Post your pictures and answer your emails whenever you want, with the hotel's free Wi-Fi internet access. Pre-plan your rides to and from the airport with the hotel's easy to book transportation services. The hotel provides car hire services to help you find what you want in Iligan City.
+         Parking is available and free, provided by the hotel for guests with their own transportation. While lodging at this wonderful hotel, the helpful staff at the front desk can assist you with multiple services that include express check-in or check-out and luggage storage. If you want seats to city's best entertainment, you can get help through the hotel's tours. In-room conveniences include room service and daily housekeeping, so you can relax and enjoy your stay.
+         Some small or last-minute needs can be quickly fulfilled by the convenience stores without having to leave the hotel. Smoking is restricted to the designated smoking areas.
+         Experience high-quality room facilities during your stay at The Loft Hotel. The hotel provides linen service and air conditioning in some rooms for the benefit of guests. Some selected rooms have television and cable TV to keep guests entertained. The hotel also provides guests with bottled water in some rooms.
+
+         Dining and things to do
+
+         Never let hunger affect your travel plans! Restaurants on-site provide convenient and tasty dining options.
+
+         Reasons to stay here
+
+         Rooms here are cheaper than 81% of accommodations in the city.
+      </p>
+   </div>
+   <a href="{% url 'checkout_basic' %}" class="btn book-now-btn" style="background-color: blue; color: white;">Book Now</a>
+
+
+</section>
+
+<!-- view property section ends -->
+
+{% include 'components/footer.html' %}
+
+<script>
+   document.querySelectorAll('.view-property .details .thumb .small-images img').forEach(function (image) {
+       image.onclick = function () {
+           var src = image.getAttribute('src');
+           document.querySelector('.view-property .details .thumb .big-image img').src = src;
+       };
+   });
+</script>
+
+<!-- custom js file link  -->
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
